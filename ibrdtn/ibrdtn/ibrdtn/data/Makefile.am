@@ -12,6 +12,7 @@ h_sources = \
 	BundleMerger.h \
 	BundleString.h \
 	CustodySignalBlock.h \
+	DBlock.h \
 	Dictionary.h \
 	DTNTime.h \
 	EID.h \
@@ -46,6 +47,7 @@ cc_sources = \
 	BundleMerger.cpp \
 	BundleString.cpp \
 	CustodySignalBlock.cpp \
+	DBlock.cpp \
 	Dictionary.cpp \
 	DTNTime.cpp \
 	EID.cpp \
