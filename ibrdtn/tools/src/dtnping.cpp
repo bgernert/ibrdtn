@@ -26,6 +26,8 @@
 #include "ibrcommon/thread/MutexLock.h"
 #include <ibrcommon/thread/SignalHandler.h>
 #include "ibrcommon/TimeMeasurement.h"
+#include "ibrdtn/data/BundleBuilder.h"
+#include "ibrdtn/data/DBlock.h"
 
 #include <iostream>
 #include <stdint.h>
@@ -85,6 +87,12 @@ class EchoClient : public dtn::api::Client
 			// set lifetime
 			b.lifetime = lifetime;
 			
+			dtn::data::BundleBuilder builder(b);
+			size_t flag1;
+			dtn::data::DBlock &db = builder.insert<dtn::data::DBlock>(flag1);
+			db.setVar1(dtn::data::Integer(42));
+			db.setVar2(dtn::data::BundleString("Test String 12345"));
+
 			// create a new blob
 			ibrcommon::BLOB::Reference ref = ibrcommon::BLOB::create();
 
