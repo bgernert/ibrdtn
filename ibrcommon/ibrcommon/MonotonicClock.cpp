@@ -104,6 +104,9 @@ namespace ibrcommon {
 		mach_port_deallocate(mach_task_self(), cclock);
 		ts.tv_sec = mts.tv_sec;
 		ts.tv_nsec = mts.tv_nsec;
+#elif HAVE_SIMULATION_TIME
+
+
 #else
 #ifdef CLOCK_BOOTTIME
 		// use BOOTTIME as monotonic clock

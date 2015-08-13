@@ -139,6 +139,8 @@ ANDROID_AC_BUILD([
 
 	# triggers other conditionals at the end
 	use_xml="no"
+	use_simtime="no"
+
 ],[
 #ANDROID else begin
 	AC_CHECK_LIB(rt, clock_gettime, [])
@@ -397,6 +399,22 @@ ANDROID_AC_BUILD([
 	],[
 		use_xml="no"
 	])
+	
+	# check for simtime
+	AC_ARG_WITH([simtime],
+		AS_HELP_STRING([--with-simtime], [Build with simulation time support
+			@<:@default=no@:>@]),
+	[
+		AS_IF([test "x$with_simtime" = "xyes"], [
+			use_simtime="yes"
+			AC_DEFINE(HAVE_SIMULATION_TIME, [1], ["Enable simulation time"])
+			AC_MSG_NOTICE([Simulation time support enabled])
+		],[
+			use_simtime="no"
+		])
+	],[
+		use_simtime="no"
+	])
 #ANDROID else end
 ])
 
@@ -405,6 +423,7 @@ AM_CONDITIONAL(OPENSSL, test x$use_openssl = xyes)
 AM_CONDITIONAL(LOWPAN, test x$use_lowpan = xyes)
 AM_CONDITIONAL(NETLINK, test x$use_netlink = xyes)
 AM_CONDITIONAL(LIBXML, test x$use_xml = xyes)
+AM_CONDITIONAL(SIMULATION_TIME, test x$use_simtime = xyes)
 AM_CONDITIONAL(ANDROID, test x$enable_android = xyes)
 AM_CONDITIONAL(WIN32, test x$enable_win32 = xyes)
 
