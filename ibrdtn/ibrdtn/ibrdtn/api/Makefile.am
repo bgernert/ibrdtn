@@ -2,11 +2,13 @@
 
 h_sources = \
 	Client.h \
-	PlainSerializer.h
+	PlainSerializer.h \
+	EventClient.h
 
 cc_sources = \
 	Client.cpp \
-	PlainSerializer.cpp
+	PlainSerializer.cpp \
+	EventClient.cpp
 
 #Install the headers in a versioned directory
 library_includedir = $(includedir)/$(GENERIC_LIBRARY_NAME)-$(GENERIC_API_VERSION)/$(GENERIC_LIBRARY_NAME)/api
