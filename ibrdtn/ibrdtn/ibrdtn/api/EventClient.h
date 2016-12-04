@@ -1,4 +1,4 @@
-/*
+﻿/*
  * EventClient.h
  *
  * Copyright (C) 2016 IBR, TU Braunschweig
@@ -22,7 +22,7 @@
 #ifndef EVENTCLIENT_H_
 #define EVENTCLIENT_H_
 
-#include "data/EID.h"
+#include "ibrdtn/data/EID.h"
 #include <ibrcommon/net/socketstream.h>
 #include <ibrcommon/thread/Thread.h>
 
